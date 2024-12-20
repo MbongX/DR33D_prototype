@@ -83,15 +83,19 @@ class init:
                 if userType == 1:
                     print("New Users are required to create/register an account before using the software")
                     createAccount = input("Create account [Y/N], 'N will terminate the program' ?  ")
+                    
                     if createAccount.lower() == 'y':
                         print("exexute registration/account creation logic")
                         break
+                    
                     if createAccount.lower() == 'n':
                         print("Terminating the program, Good Bye !")
                         sys.exit(0)
+                
                 if userType == 2:
                     "launching login terminal ..."
                     break
+                
                 if userType == 3:
                     "Exiting the program"
                     sys.exit(0)
