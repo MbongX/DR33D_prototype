@@ -34,7 +34,7 @@ class init:
     version = "0.1"
 
     userType = 0
-    exit = False
+    sysExit = False
     createAccount = ''
 
     #Constructers
@@ -52,11 +52,18 @@ class init:
         logger.info("MyClass instance created with name: %s", name)
 
         #load disclaimer
-        if self.name is "disclaimer" or self.name is "Disclaimer" or self.name is "DISCLAIMER":
+        if self.name == "disclaimer" or self.name == "Disclaimer" or self.name == "DISCLAIMER":
             """print disclaimer"""
             print("-=:Print Disclaimer Here:=-")
         elif self.name is None:
             print("Nothing to print")
+    @staticmethod
+    def static_terminate(self, value: bool):
+        self.value = value
+        if self.value is True:
+            sys.exit(0)
+        else:
+            logger.log(self.value, "No termination code triggered")
 
     @classmethod
     def class_initBanner(cls):
@@ -85,19 +92,21 @@ class init:
                     createAccount = input("Create account [Y/N], 'N will terminate the program' ?  ")
                     
                     if createAccount.lower() == 'y':
-                        print("exexute registration/account creation logic")
+                        print("execute registration/account creation logic")
                         break
                     
                     if createAccount.lower() == 'n':
                         print("Terminating the program, Good Bye !")
+                        sysExit = True
                         sys.exit(0)
                 
-                if userType == 2:
-                    "launching login terminal ..."
+                elif userType == 2:
+                    print("launching login terminal ...")
                     break
                 
-                if userType == 3:
-                    "Exiting the program"
+                elif userType == 3:
+                    print("Exiting the program")
+                    sysExit = True
                     sys.exit(0)
                     
 
