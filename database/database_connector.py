@@ -44,7 +44,7 @@ class DatabaseConnector:
         self.db_instance_count = count
         
         #connection = mysql.connector.connect()
-        if count == None:
+        if count is None:
             count = 1
             DatabaseConnector.db_instance_count += count
 
@@ -85,7 +85,7 @@ class DatabaseConnector:
         instance methods for class
     
         :param self: 
-        :param Client's username: 
+        :param user : Client's username: 
         :return: client's username, if available on the database else None
         """
     
@@ -124,6 +124,9 @@ class DatabaseConnector:
             else:
                 logger.error(str(init) + " | Thus could not execute search on database for user")
                 
+    @classmethod
+    def insert_operations(self, user: str):
+        ""
 if __name__ == "__main__":
     """
     Testing purposes
